@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3D25B3E2C01B1C900B83352 /* ARVirtualCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B3D2C01B1C900B83352 /* ARVirtualCamApp.swift */; };
+		C3D25B402C01B1C900B83352 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B3F2C01B1C900B83352 /* ContentView.swift */; };
+		C3D25B422C01B1C900B83352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D25B412C01B1C900B83352 /* Assets.xcassets */; };
+		C3D25B452C01B1C900B83352 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D25B442C01B1C900B83352 /* Preview Assets.xcassets */; };
+		C3D25B502C01B1C900B83352 /* ARVirtualCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B4F2C01B1C900B83352 /* ARVirtualCamTests.swift */; };
+		C3D25B5A2C01B1C900B83352 /* ARVirtualCamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B592C01B1C900B83352 /* ARVirtualCamUITests.swift */; };
+		C3D25B5C2C01B1C900B83352 /* ARVirtualCamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B5B2C01B1C900B83352 /* ARVirtualCamUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3D25B4C2C01B1C900B83352 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3D25B322C01B1C900B83352 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D25B392C01B1C900B83352;
+			remoteInfo = ARVirtualCam;
+		};
+		C3D25B562C01B1C900B83352 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3D25B322C01B1C900B83352 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D25B392C01B1C900B83352;
+			remoteInfo = ARVirtualCam;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C3D25B3A2C01B1C900B83352 /* ARVirtualCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARVirtualCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3D25B3D2C01B1C900B83352 /* ARVirtualCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVirtualCamApp.swift; sourceTree = "<group>"; };
+		C3D25B3F2C01B1C900B83352 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C3D25B412C01B1C900B83352 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3D25B442C01B1C900B83352 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C3D25B462C01B1C900B83352 /* ARVirtualCam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARVirtualCam.entitlements; sourceTree = "<group>"; };
+		C3D25B4B2C01B1C900B83352 /* ARVirtualCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARVirtualCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3D25B4F2C01B1C900B83352 /* ARVirtualCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVirtualCamTests.swift; sourceTree = "<group>"; };
+		C3D25B552C01B1C900B83352 /* ARVirtualCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARVirtualCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3D25B592C01B1C900B83352 /* ARVirtualCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVirtualCamUITests.swift; sourceTree = "<group>"; };
+		C3D25B5B2C01B1C900B83352 /* ARVirtualCamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVirtualCamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3D25B372C01B1C900B83352 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D25B482C01B1C900B83352 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D25B522C01B1C900B83352 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3D25B312C01B1C900B83352 = {
+			isa = PBXGroup;
+			children = (
+				C3D25B3C2C01B1C900B83352 /* ARVirtualCam */,
+				C3D25B4E2C01B1C900B83352 /* ARVirtualCamTests */,
+				C3D25B582C01B1C900B83352 /* ARVirtualCamUITests */,
+				C3D25B3B2C01B1C900B83352 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3D25B3B2C01B1C900B83352 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3D25B3A2C01B1C900B83352 /* ARVirtualCam.app */,
+				C3D25B4B2C01B1C900B83352 /* ARVirtualCamTests.xctest */,
+				C3D25B552C01B1C900B83352 /* ARVirtualCamUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3D25B3C2C01B1C900B83352 /* ARVirtualCam */ = {
+			isa = PBXGroup;
+			children = (
+				C3D25B3D2C01B1C900B83352 /* ARVirtualCamApp.swift */,
+				C3D25B3F2C01B1C900B83352 /* ContentView.swift */,
+				C3D25B412C01B1C900B83352 /* Assets.xcassets */,
+				C3D25B462C01B1C900B83352 /* ARVirtualCam.entitlements */,
+				C3D25B432C01B1C900B83352 /* Preview Content */,
+			);
+			path = ARVirtualCam;
+			sourceTree = "<group>";
+		};
+		C3D25B432C01B1C900B83352 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C3D25B442C01B1C900B83352 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C3D25B4E2C01B1C900B83352 /* ARVirtualCamTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3D25B4F2C01B1C900B83352 /* ARVirtualCamTests.swift */,
+			);
+			path = ARVirtualCamTests;
+			sourceTree = "<group>";
+		};
+		C3D25B582C01B1C900B83352 /* ARVirtualCamUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C3D25B592C01B1C900B83352 /* ARVirtualCamUITests.swift */,
+				C3D25B5B2C01B1C900B83352 /* ARVirtualCamUITestsLaunchTests.swift */,
+			);
+			path = ARVirtualCamUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3D25B392C01B1C900B83352 /* ARVirtualCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3D25B5F2C01B1C900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCam" */;
+			buildPhases = (
+				C3D25B362C01B1C900B83352 /* Sources */,
+				C3D25B372C01B1C900B83352 /* Frameworks */,
+				C3D25B382C01B1C900B83352 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARVirtualCam;
+			productName = ARVirtualCam;
+			productReference = C3D25B3A2C01B1C900B83352 /* ARVirtualCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3D25B4A2C01B1C900B83352 /* ARVirtualCamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3D25B622C01B1C900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCamTests" */;
+			buildPhases = (
+				C3D25B472C01B1C900B83352 /* Sources */,
+				C3D25B482C01B1C900B83352 /* Frameworks */,
+				C3D25B492C01B1C900B83352 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3D25B4D2C01B1C900B83352 /* PBXTargetDependency */,
+			);
+			name = ARVirtualCamTests;
+			productName = ARVirtualCamTests;
+			productReference = C3D25B4B2C01B1C900B83352 /* ARVirtualCamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C3D25B542C01B1C900B83352 /* ARVirtualCamUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3D25B652C01B1C900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCamUITests" */;
+			buildPhases = (
+				C3D25B512C01B1C900B83352 /* Sources */,
+				C3D25B522C01B1C900B83352 /* Frameworks */,
+				C3D25B532C01B1C900B83352 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3D25B572C01B1C900B83352 /* PBXTargetDependency */,
+			);
+			name = ARVirtualCamUITests;
+			productName = ARVirtualCamUITests;
+			productReference = C3D25B552C01B1C900B83352 /* ARVirtualCamUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3D25B322C01B1C900B83352 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					C3D25B392C01B1C900B83352 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					C3D25B4A2C01B1C900B83352 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = C3D25B392C01B1C900B83352;
+					};
+					C3D25B542C01B1C900B83352 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = C3D25B392C01B1C900B83352;
+					};
+				};
+			};
+			buildConfigurationList = C3D25B352C01B1C900B83352 /* Build configuration list for PBXProject "ARVirtualCam" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C3D25B312C01B1C900B83352;
+			productRefGroup = C3D25B3B2C01B1C900B83352 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3D25B392C01B1C900B83352 /* ARVirtualCam */,
+				C3D25B4A2C01B1C900B83352 /* ARVirtualCamTests */,
+				C3D25B542C01B1C900B83352 /* ARVirtualCamUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3D25B382C01B1C900B83352 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3D25B452C01B1C900B83352 /* Preview Assets.xcassets in Resources */,
+				C3D25B422C01B1C900B83352 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D25B492C01B1C900B83352 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D25B532C01B1C900B83352 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3D25B362C01B1C900B83352 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3D25B402C01B1C900B83352 /* ContentView.swift in Sources */,
+				C3D25B3E2C01B1C900B83352 /* ARVirtualCamApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D25B472C01B1C900B83352 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3D25B502C01B1C900B83352 /* ARVirtualCamTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D25B512C01B1C900B83352 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3D25B5A2C01B1C900B83352 /* ARVirtualCamUITests.swift in Sources */,
+				C3D25B5C2C01B1C900B83352 /* ARVirtualCamUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3D25B4D2C01B1C900B83352 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D25B392C01B1C900B83352 /* ARVirtualCam */;
+			targetProxy = C3D25B4C2C01B1C900B83352 /* PBXContainerItemProxy */;
+		};
+		C3D25B572C01B1C900B83352 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D25B392C01B1C900B83352 /* ARVirtualCam */;
+			targetProxy = C3D25B562C01B1C900B83352 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C3D25B5D2C01B1C900B83352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C3D25B5E2C01B1C900B83352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		C3D25B602C01B1C900B83352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ARVirtualCam/ARVirtualCam.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ARVirtualCam/Preview Content\"";
+				DEVELOPMENT_TEAM = 9KKZGPATSJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = carlmoore.ARVirtualCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C3D25B612C01B1C900B83352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ARVirtualCam/ARVirtualCam.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ARVirtualCam/Preview Content\"";
+				DEVELOPMENT_TEAM = 9KKZGPATSJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = carlmoore.ARVirtualCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C3D25B632C01B1C900B83352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KKZGPATSJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = carlmoore.ARVirtualCamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARVirtualCam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ARVirtualCam";
+			};
+			name = Debug;
+		};
+		C3D25B642C01B1C900B83352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KKZGPATSJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = carlmoore.ARVirtualCamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARVirtualCam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ARVirtualCam";
+			};
+			name = Release;
+		};
+		C3D25B662C01B1C900B83352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KKZGPATSJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = carlmoore.ARVirtualCamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ARVirtualCam;
+			};
+			name = Debug;
+		};
+		C3D25B672C01B1C900B83352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KKZGPATSJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = carlmoore.ARVirtualCamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ARVirtualCam;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3D25B352C01B1C900B83352 /* Build configuration list for PBXProject "ARVirtualCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3D25B5D2C01B1C900B83352 /* Debug */,
+				C3D25B5E2C01B1C900B83352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3D25B5F2C01B1C900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3D25B602C01B1C900B83352 /* Debug */,
+				C3D25B612C01B1C900B83352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3D25B622C01B1C900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3D25B632C01B1C900B83352 /* Debug */,
+				C3D25B642C01B1C900B83352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3D25B652C01B1C900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCamUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3D25B662C01B1C900B83352 /* Debug */,
+				C3D25B672C01B1C900B83352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3D25B322C01B1C900B83352 /* Project object */;
+}
