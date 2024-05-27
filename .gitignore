@@ -1,0 +1,45 @@
+.DS_Store
+# Xcode
+*.xcworkspace
+*xcuserdata/
+*.xccheckout
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+ARVirtualCam.xcodeproj/xcuserdata
+
+# Build products
+Build/
+*.app
+*.dSYM
+
+# Version control
+.DS_Store
+.svn
+
+# User-specific settings
+*.swp
+*~.nib
+*~
+*.idea
+
+# macOS-specific files
+.Spotlight-V100
+.Trashes
+
+# Swift Package Manager
+# Add this if you don't want to check in source code from Swift Package Manager dependencies
+#Packages/
+
+# Additional (Optional)
+*.xcodeproj # If you're not using CocoaPods or Carthage
+*.lock
+
+.env
