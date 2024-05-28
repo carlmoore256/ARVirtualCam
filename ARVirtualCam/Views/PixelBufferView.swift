@@ -19,13 +19,13 @@ struct PixelBufferView: NSViewRepresentable {
     }
     
     func updateNSView(_ nsView: NSImageView, context: Context) {
-        pixelBufferChannel.onPixelBufferUpdate = { pixelBuffer in
+        pixelBufferChannel.addBufferListener(id: "viewListener", listener: { pixelBuffer in
             let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
             let context = CIContext()
             if let cgImage = context.createCGImage(ciImage, from: ciImage.extent) {
                 let nsImage = NSImage(cgImage: cgImage, size: nsView.bounds.size)
                 nsView.image = nsImage
             }
-        }
+        })
     }
 }

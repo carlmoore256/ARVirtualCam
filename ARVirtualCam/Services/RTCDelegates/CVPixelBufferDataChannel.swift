@@ -8,6 +8,7 @@
 import Foundation
 import WebRTC
 import DataCompression
+import Accelerate
 
 struct PixelBufferMetadata {
     var width: Int
@@ -52,12 +53,46 @@ struct PixelBufferMetadata {
     }
 }
 
+
 // converts an incoming data buffer from RTCDataBuffer into a CVPixelBuffer
 class CVPixelBufferDataChannel: NSObject, RTCDataChannelDelegate, ObservableObject  {
-    @Published var pixelBuffer: CVPixelBuffer?
+    var pixelBuffer: CVPixelBuffer?
     @Published var pixelBufferMetadata: PixelBufferMetadata?
+    @Published var averageDataRate: Double = 0
+    @Published var averageFrameRate: Int = 0
     
-    var onPixelBufferUpdate: ((CVPixelBuffer) -> Void)?
+    private var dataReceivedThisSecond: Int = 0
+    private var framesReceivedThisSecond: Int = 0
+    private var dataRateTimer: Timer?
+    var bufferUpdateListeners: [String: ((CVPixelBuffer) -> Void)] = [:]
+
+    override init() {
+        super.init()
+        dataRateTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            DispatchQueue.main.async {
+                self.averageDataRate = Double(self.dataReceivedThisSecond)
+                self.averageFrameRate = self.framesReceivedThisSecond
+                self.dataReceivedThisSecond = 0 // Reset for the next second
+                self.framesReceivedThisSecond = 0
+            }
+        }
+    }
+    
+    deinit {
+        dataRateTimer?.invalidate()
+    }
+    
+    func addBufferListener(id: String, listener: @escaping (CVPixelBuffer) -> Void) {
+        bufferUpdateListeners[id] = listener
+    }
+    
+    func removeBufferListener(id: String) {
+        let res = self.bufferUpdateListeners.removeValue(forKey: id)
+        if res == nil {
+            print("CVPixelBufferDataChannel tried to remove listener with id: \(id) when it didn't yet exist")
+        }
+    }
+    
     
     func dataChannelDidChangeState(_ dataChannel: RTCDataChannel) {
         print("Pixel buffer channel changed state: \(dataChannel.readyState)")
@@ -70,7 +105,7 @@ class CVPixelBufferDataChannel: NSObject, RTCDataChannelDelegate, ObservableObje
             kCVPixelBufferCGBitmapContextCompatibilityKey as String: true,
             kCVPixelBufferWidthKey as String: metadata.width,
             kCVPixelBufferHeightKey as String: metadata.height,
-            kCVPixelBufferPixelFormatTypeKey as String: metadata.pixelFormat, // Ensure correct pixel format
+            kCVPixelBufferPixelFormatTypeKey as String: metadata.pixelFormat,
             kCVPixelBufferBytesPerRowAlignmentKey as String: metadata.bytesPerRow
         ]
         
@@ -94,7 +129,8 @@ class CVPixelBufferDataChannel: NSObject, RTCDataChannelDelegate, ObservableObje
     }
     
     func dataChannel(_ dataChannel: RTCDataChannel, didReceiveMessageWith buffer: RTCDataBuffer) {
-        // print("Pixel buffer channel received data!")
+        self.dataReceivedThisSecond += buffer.data.count
+        self.framesReceivedThisSecond += 1
         guard let data = buffer.data.decompress(withAlgorithm: .zlib) else {
             print("Failed to decompress data")
             return
@@ -107,13 +143,13 @@ class CVPixelBufferDataChannel: NSObject, RTCDataChannelDelegate, ObservableObje
             }
             // Setup the pixel buffer if not already done
             if self.pixelBuffer == nil {
+                print("SElf.pixelBuffer is nil, CREATING IT NOW")
                 setupPixelBuffer(with: pixelBufferMetadata)
             }
             
             DispatchQueue.main.async {
                 self.pixelBufferMetadata = pixelBufferMetadata
             }
-            
         }
         
         guard let pixelBufferMetadata = self.pixelBufferMetadata else {
@@ -136,13 +172,17 @@ class CVPixelBufferDataChannel: NSObject, RTCDataChannelDelegate, ObservableObje
             guard let rawPointer = rawBufferPointer.baseAddress else {
                 return
             }
-            memcpy(baseAddress, rawPointer, pixelBufferMetadata.bytesPerRow * pixelBufferMetadata.height) // Use metadata
+            memcpy(baseAddress, rawPointer, pixelBufferMetadata.bytesPerRow * pixelBufferMetadata.height)
         }
         
         DispatchQueue.main.async {
             if let pixelBuffer = self.pixelBuffer {
-                self.onPixelBufferUpdate?(pixelBuffer)
+                self.bufferUpdateListeners.values.forEach({ listener in
+                    listener(pixelBuffer)
+                })
             }
         }
     }
 }
+
+

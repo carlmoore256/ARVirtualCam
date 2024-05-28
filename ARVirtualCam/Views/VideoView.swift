@@ -11,11 +11,11 @@ import WebRTC
 
 
 struct VideoView: View {
-    let rtcVideoTrack: ActiveRTCVideoTrack
+    let rtcVideoTrack: RTCVideoTrack
 
     var body: some View {
         GeometryReader { geometry in
-            RTCMTLNSVideoViewWrapper(videoTrack: rtcVideoTrack.track, frame: geometry.frame(in: .local))
+            RTCMTLNSVideoViewWrapper(videoTrack: rtcVideoTrack, frame: geometry.frame(in: .local))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }

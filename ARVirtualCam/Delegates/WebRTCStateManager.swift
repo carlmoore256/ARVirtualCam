@@ -8,6 +8,9 @@
 import Foundation
 import WebRTC
 
+
+
+
 // just implent all the relevant delegate methods for the webRTC client
 class WebRTCStateManager: WebRTCClientDelegate, SignalingClientDelegate, ObservableObject {
     
@@ -25,7 +28,7 @@ class WebRTCStateManager: WebRTCClientDelegate, SignalingClientDelegate, Observa
     @Published var hasLocalSdp = false
     @Published var peerConnectionStatus: String = ""
     
-    @Published var currentStreams: [RTCMediaStream] = []
+    @Published var remoteTracks: [RemoteRTCVideoTrack] = []
     @Published var dataChannels: [ActiveRTCDataChannel] = []
     
     init(webRTCClient: WebRTCClient, signalingClient: SignalingClient) {
@@ -67,7 +70,6 @@ class WebRTCStateManager: WebRTCClientDelegate, SignalingClientDelegate, Observa
     
     func signalingClient(_ signalClient: SignalingClient, didReceiveCandidate candidate: RTCIceCandidate) {
         self.webRTCClient.set(remoteCandidate: candidate) { error in
-            print("Received remote candidate")
             DispatchQueue.main.async {
                 self.remoteCandidateCount += 1
             }
@@ -97,16 +99,21 @@ class WebRTCStateManager: WebRTCClientDelegate, SignalingClientDelegate, Observa
         }
     }
     
-    func webRTCClient(_ client: WebRTCClient, didRemoveStream stream: RTCMediaStream) {
+    func webRTCClient(_ client: WebRTCClient, didAddStream stream: RTCMediaStream) {
         DispatchQueue.main.async {
-            self.currentStreams.append(stream)
+            for track in stream.videoTracks {
+                self.remoteTracks.append(RemoteRTCVideoTrack(track: track))
+            }
         }
     }
     
-    func webRTCClient(_ client: WebRTCClient, didAddStream stream: RTCMediaStream) {
+    func webRTCClient(_ client: WebRTCClient, didRemoveStream stream: RTCMediaStream) {
         DispatchQueue.main.async {
-            if let index = self.currentStreams.firstIndex(of: stream) {
-                self.currentStreams.remove(at: index)
+            for _ in stream.videoTracks {
+                print("Pass")
+//                if let index = self.remoteTracks.firstIndex(of: stream) {
+//                    self.remoteStreams.remove(at: index)
+//                }
             }
         }
     }
@@ -120,7 +127,7 @@ class WebRTCStateManager: WebRTCClientDelegate, SignalingClientDelegate, Observa
     func webRTCClient(_ client: WebRTCClient, remoteDataChannelAdded dataChannel: ActiveRTCDataChannel) {
         print("Remote data channel added: \(dataChannel)")
         DispatchQueue.main.async {
-            self.dataChannels.append(dataChannel)
+             self.dataChannels.append(dataChannel)
         }
     }
     
@@ -148,9 +155,5 @@ class WebRTCStateManager: WebRTCClientDelegate, SignalingClientDelegate, Observa
     
     func startCaptureLocalVideo(renderer: RTCVideoRenderer) {
         self.webRTCClient.startCaptureLocalVideo(renderer: renderer, trackId: "video0")
-    }
-    
-    func renderRemoteVideo(to renderer: RTCVideoRenderer) {
-        self.webRTCClient.renderRemoteVideo(to: renderer)
     }
 }

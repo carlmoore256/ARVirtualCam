@@ -14,7 +14,7 @@
 		C341D7C82C027D8100F19B2B /* CameraProvierSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C72C027D8100F19B2B /* CameraProvierSource.swift */; };
 		C341D7CA2C02863000F19B2B /* CMIOSourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C92C02863000F19B2B /* CMIOSourceHandler.swift */; };
 		C341D7CB2C0286FC00F19B2B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C02C027CBB00F19B2B /* Config.swift */; };
-		C341D7CE2C028C8200F19B2B /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7CD2C028C8200F19B2B /* CameraViewModel.swift */; };
+		C341D7CE2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7CD2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift */; };
 		C341D7D02C02907600F19B2B /* CameraProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7CF2C02907600F19B2B /* CameraProvider.swift */; };
 		C341D7D32C0291E300F19B2B /* FourCodeChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7D22C0291E300F19B2B /* FourCodeChar.swift */; };
 		C341D7D52C02923700F19B2B /* CMIOExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7D42C02923700F19B2B /* CMIOExtensions.swift */; };
@@ -34,6 +34,7 @@
 		C377A42F2C05194300D06991 /* DataCompression in Frameworks */ = {isa = PBXBuildFile; productRef = C377A42E2C05194300D06991 /* DataCompression */; };
 		C377A4312C0527ED00D06991 /* PixelBufferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377A4302C0527ED00D06991 /* PixelBufferView.swift */; };
 		C377A4332C052EE100D06991 /* CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377A4322C052EE100D06991 /* CVPixelBuffer.swift */; };
+		C377A4352C0535D800D06991 /* DataRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377A4342C0535D800D06991 /* DataRateView.swift */; };
 		C3B05BA42C02AA06005B3E3A /* SignalingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B05BA12C02AA06005B3E3A /* SignalingClient.swift */; };
 		C3B05BA52C02AA06005B3E3A /* WebRTCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B05BA22C02AA06005B3E3A /* WebRTCClient.swift */; };
 		C3B05BA62C02AA06005B3E3A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B05BA32C02AA06005B3E3A /* Message.swift */; };
@@ -98,7 +99,7 @@
 		C341D7C52C027D5A00F19B2B /* CameraStreamSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStreamSource.swift; sourceTree = "<group>"; };
 		C341D7C72C027D8100F19B2B /* CameraProvierSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraProvierSource.swift; sourceTree = "<group>"; };
 		C341D7C92C02863000F19B2B /* CMIOSourceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMIOSourceHandler.swift; sourceTree = "<group>"; };
-		C341D7CD2C028C8200F19B2B /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		C341D7CD2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCameraPluginViewModel.swift; sourceTree = "<group>"; };
 		C341D7CF2C02907600F19B2B /* CameraProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraProvider.swift; sourceTree = "<group>"; };
 		C341D7D22C0291E300F19B2B /* FourCodeChar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourCodeChar.swift; sourceTree = "<group>"; };
 		C341D7D42C02923700F19B2B /* CMIOExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMIOExtensions.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		C377A4262C04214E00D06991 /* PixelBufferImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferImageView.swift; sourceTree = "<group>"; };
 		C377A4302C0527ED00D06991 /* PixelBufferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferView.swift; sourceTree = "<group>"; };
 		C377A4322C052EE100D06991 /* CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBuffer.swift; sourceTree = "<group>"; };
+		C377A4342C0535D800D06991 /* DataRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRateView.swift; sourceTree = "<group>"; };
 		C3B05BA12C02AA06005B3E3A /* SignalingClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalingClient.swift; sourceTree = "<group>"; };
 		C3B05BA22C02AA06005B3E3A /* WebRTCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRTCClient.swift; sourceTree = "<group>"; };
 		C3B05BA32C02AA06005B3E3A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -191,7 +193,7 @@
 		C341D7CC2C028C7A00F19B2B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C341D7CD2C028C8200F19B2B /* CameraViewModel.swift */,
+				C341D7CD2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift */,
 				C377A4172C02DB3500D06991 /* WebRTCManager.swift */,
 			);
 			path = Models;
@@ -233,6 +235,7 @@
 			children = (
 				C377A41F2C03EE9100D06991 /* Buttons.swift */,
 				C377A4262C04214E00D06991 /* PixelBufferImageView.swift */,
+				C377A4342C0535D800D06991 /* DataRateView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -543,12 +546,13 @@
 				C377A4332C052EE100D06991 /* CVPixelBuffer.swift in Sources */,
 				C341D7CA2C02863000F19B2B /* CMIOSourceHandler.swift in Sources */,
 				C377A4202C03EE9100D06991 /* Buttons.swift in Sources */,
+				C377A4352C0535D800D06991 /* DataRateView.swift in Sources */,
 				C377A4312C0527ED00D06991 /* PixelBufferView.swift in Sources */,
 				C377A4272C04214E00D06991 /* PixelBufferImageView.swift in Sources */,
 				C377A4222C03F0EA00D06991 /* VideoView.swift in Sources */,
 				C3B05BA92C02AA23005B3E3A /* NativeWebSocket.swift in Sources */,
 				C377A41D2C03032400D06991 /* WebRTCStateManager.swift in Sources */,
-				C341D7CE2C028C8200F19B2B /* CameraViewModel.swift in Sources */,
+				C341D7CE2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift in Sources */,
 				C377A4012C02AB4000D06991 /* FrameVideoCapturer.swift in Sources */,
 				C3B05BA62C02AA06005B3E3A /* Message.swift in Sources */,
 				C377A4022C02AB4000D06991 /* IceCandidate.swift in Sources */,

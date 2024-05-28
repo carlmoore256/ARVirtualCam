@@ -8,8 +8,11 @@ import Foundation
 
 let kFrameRate: Int = 30
 let cameraName = "Sample Camera"
-let fixedCamWidth: Int32 = 1920
-let fixedCamHeight: Int32 = 1080
+//let fixedCamWidth: Int32 = 256
+//let fixedCamHeight: Int32 = 192
+
+let fixedCamWidth: Int32 = 1280
+let fixedCamHeight: Int32 = 720
 
 let defaultSignalingServerUrl = URL(string: "ws://192.168.1.242:8080")!
 let defaultIceServers = ["stun:stun.l.google.com:19302",

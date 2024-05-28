@@ -7,8 +7,9 @@
 
 import Foundation
 import Combine
+import CoreMediaIO
 
-class CameraViewModel: ObservableObject {
+class VirtualCameraPluginViewModel: ObservableObject {
     @Published var debugMessage: String = ""
     @Published var mirrorCamera: Bool = true {
         didSet {
@@ -24,9 +25,8 @@ class CameraViewModel: ObservableObject {
     private var cmioHandler = CMIOSourceHandler()
     private var timer: Timer?
     private var propTimer: Timer?
-    
     private var cancellables = Set<AnyCancellable>()
-    
+    private var depthBuffer8Bit: CVPixelBuffer?
     
     init() {
         registerForDeviceNotifications()
@@ -57,6 +57,27 @@ class CameraViewModel: ObservableObject {
     
     func deactivateCamera() {
         //        cmioHandler.deactivateCamera()
+    }
+    
+    func sendDepthPixelBuffer(pixelBuffer: CVPixelBuffer) {
+        if self.depthBuffer8Bit == nil {
+            let width = CVPixelBufferGetWidth(pixelBuffer)
+            let height = CVPixelBufferGetHeight(pixelBuffer)
+            self.depthBuffer8Bit = create8Bit3ChannelPixelBuffer(width: width, height: height)
+        }
+        guard let depthBuffer8Bit = self.depthBuffer8Bit else {
+            print("8 bit buffer is not initialized!")
+            return
+        }
+        
+//        let success = convert32BitTo8Bit3Channel(pixelBuffer: pixelBuffer, outputPixelBuffer: depthBuffer8Bit, min: 0.0, max: 6.0)
+        let success = convertDepthBufferToHSV(pixelBuffer: pixelBuffer, outputPixelBuffer: depthBuffer8Bit, minDepth: 0.0, maxDepth: 8.0)
+        
+        if !success {
+            print("Error converting 32Bit data to 8 bit")
+            return
+        }
+        self.cmioHandler.setPixelBuffer(newPixelBuffer: depthBuffer8Bit)
     }
     
     private func registerForDeviceNotifications() {

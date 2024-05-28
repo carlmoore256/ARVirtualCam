@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ControlsView: View {
     // @EnvironmentObject var cmioSourceHandler: CMIOSourceHandler
-    @StateObject private var viewModel = CameraViewModel()
+    @EnvironmentObject private var viewModel : VirtualCameraPluginViewModel
     
     var body: some View {
         VStack(spacing: 20) {

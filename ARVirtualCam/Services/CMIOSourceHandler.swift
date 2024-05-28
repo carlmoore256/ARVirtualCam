@@ -18,6 +18,8 @@ class CMIOSourceHandler : ObservableObject {
     private var _bufferAuxAttributes: NSDictionary!
     private var readyToEnqueue = false
     private var enqueued = false
+    
+    private var inputPixelBuffer: CVPixelBuffer?
     var sinkQueue: CMSimpleQueue?
     var sinkStream: CMIOStreamID?
     var sourceStream: CMIOStreamID?
@@ -29,12 +31,93 @@ class CMIOSourceHandler : ObservableObject {
     
     private var image = NSImage(named: "cham-index")
     
+    private var width: Int32
+    private var height: Int32
+    private var pixelFormat: OSType
+    
+    init(width: Int32 = fixedCamWidth, height: Int32 = fixedCamHeight, pixelFormat: OSType = kCVPixelFormatType_32BGRA) {
+        self.width = width
+        self.height = height
+        self.pixelFormat = pixelFormat
+    }
+    
+    func setPixelBuffer(newPixelBuffer: CVPixelBuffer) {
+        let newWidth = Int32(CVPixelBufferGetWidth(newPixelBuffer))
+        let newHeight = Int32(CVPixelBufferGetHeight(newPixelBuffer))
+        let currentWidth = self.inputPixelBuffer.map { CVPixelBufferGetWidth($0) } ?? 0
+        let currentHeight = self.inputPixelBuffer.map { CVPixelBufferGetHeight($0) } ?? 0
+        if newWidth != currentWidth || newHeight != currentHeight {
+            // resize the buffer
+            let ciImage = CIImage(cvPixelBuffer: newPixelBuffer)
+            let filter = CIFilter(name: "CILanczosScaleTransform")!
+            filter.setValue(ciImage, forKey: kCIInputImageKey)
+            filter.setValue(currentWidth / Int(newWidth), forKey: kCIInputScaleKey)
+            filter.setValue(1.0, forKey: kCIInputAspectRatioKey) // Maintain aspect ratio
+            let ciContext = CIContext()
+            
+            guard let pixelBuffer = self.inputPixelBuffer else {
+                print("No pixel buffer yet, creating")
+                CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(kCFAllocatorDefault, self._bufferPool, self._bufferAuxAttributes, &self.inputPixelBuffer)
+                return
+            }
+            if let outputImage = filter.outputImage {
+                ciContext.render(outputImage, to: inputPixelBuffer!)
+//                self.inputPixelBuffer = pixelBuffer
+            } else {
+                print("Error resizing pixel buffer")
+                return
+            }
+        } else {
+            self.inputPixelBuffer = newPixelBuffer
+        }
+    }
+    
+    // self.connectToCamera(width: newWidth, height: newHeight)
+    
+    func generatePixelBuffer(with image: CGImage, mirrored: Bool = false) -> CVPixelBuffer? {
+        var pixelBuffer: CVPixelBuffer?
+        CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(kCFAllocatorDefault, self._bufferPool, self._bufferAuxAttributes, &pixelBuffer)
+        if let pixelBuffer = pixelBuffer {
+            CVPixelBufferLockBaseAddress(pixelBuffer, [])
+            let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer)
+            let width = CVPixelBufferGetWidth(pixelBuffer)
+            let height = CVPixelBufferGetHeight(pixelBuffer)
+            let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+            // optimizing context: interpolationQuality and bitmapInfo
+            // see https://stackoverflow.com/questions/7560979/cgcontextdrawimage-is-extremely-slow-after-large-uiimage-drawn-into-it
+            if let context = CGContext(data: pixelData,
+                                       width: width,
+                                       height: height,
+                                       bitsPerComponent: 8,
+                                       bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer),
+                                       space: rgbColorSpace,
+                                       bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue)
+            {
+                context.interpolationQuality = .low
+                if mirrorCamera {
+                    context.translateBy(x: CGFloat(width), y: 0.0)
+                    context.scaleBy(x: -1.0, y: 1.0)
+                }
+                context.draw(image, in: CGRect(x: 0, y: 0, width: width, height: height))
+            }
+            CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
+            return pixelBuffer
+        } else {
+            print("error getting pixel buffer")
+            return nil
+        }
+    }
+    
     func initSink(deviceId: CMIODeviceID, sinkStream: CMIOStreamID) {
-        let dims = CMVideoDimensions(width: fixedCamWidth, height: fixedCamHeight)
+        let dims = CMVideoDimensions(width: self.width, height: self.height)
+        
         CMVideoFormatDescriptionCreate(
             allocator: kCFAllocatorDefault,
             codecType: kCVPixelFormatType_32BGRA,
-            width: dims.width, height: dims.height, extensions: nil, formatDescriptionOut: &_videoDescription)
+            width: dims.width, 
+            height: dims.height,
+            extensions: nil,
+            formatDescriptionOut: &_videoDescription)
         
         var pixelBufferAttributes: NSDictionary!
         pixelBufferAttributes = [
@@ -88,8 +171,8 @@ class CMIOSourceHandler : ObservableObject {
         if let deviceObjectId = CameraProvider.getCMIODeviceObjectId(deviceUniqueId: device.uniqueID) {
             let streamIds = CameraProvider.getInputStreams(deviceId: deviceObjectId)
             if streamIds.count == 2 {
-                sinkStream = streamIds[1]
                 print("Found sink stream!")
+                sinkStream = streamIds[1]
                 initSink(deviceId: deviceObjectId, sinkStream: streamIds[1])
             }
             if let firstStream = streamIds.first {
@@ -106,60 +189,7 @@ class CMIOSourceHandler : ObservableObject {
             return
         }
         var err: OSStatus = 0
-        var pixelBuffer: CVPixelBuffer?
-        err = CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(kCFAllocatorDefault, self._bufferPool, self._bufferAuxAttributes, &pixelBuffer)
-        if let pixelBuffer = pixelBuffer {
-            
-            CVPixelBufferLockBaseAddress(pixelBuffer, [])
-            
-//            var bufferPtr = CVPixelBufferGetBaseAddress(pixelBuffer)!
-//            let width = CVPixelBufferGetWidth(pixelBuffer)
-//            let height = CVPixelBufferGetHeight(pixelBuffer)
-//            let rowBytes = CVPixelBufferGetBytesPerRow(pixelBuffer)
-//            memset(bufferPtr, 0, rowBytes * height)
-//            
-//            let whiteStripeStartRow = self._whiteStripeStartRow
-//            if self._whiteStripeIsAscending {
-//                self._whiteStripeStartRow = whiteStripeStartRow - 1
-//                self._whiteStripeIsAscending = self._whiteStripeStartRow > 0
-//            }
-//            else {
-//                self._whiteStripeStartRow = whiteStripeStartRow + 1
-//                self._whiteStripeIsAscending = self._whiteStripeStartRow >= (height - 30)
-//            }
-//            bufferPtr += rowBytes * Int(whiteStripeStartRow)
-//            for _ in 0..<30 {
-//                for _ in 0..<width {
-//                    var white: UInt32 = 0xFFFFFFFF
-//                    memcpy(bufferPtr, &white, MemoryLayout.size(ofValue: white))
-//                    bufferPtr += MemoryLayout.size(ofValue: white)
-//                }
-//            }
-            
-            let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer)
-            let width = CVPixelBufferGetWidth(pixelBuffer)
-            let height = CVPixelBufferGetHeight(pixelBuffer)
-            let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-            // optimizing context: interpolationQuality and bitmapInfo
-            // see https://stackoverflow.com/questions/7560979/cgcontextdrawimage-is-extremely-slow-after-large-uiimage-drawn-into-it
-            if let context = CGContext(data: pixelData,
-                                      width: width,
-                                      height: height,
-                                      bitsPerComponent: 8,
-                                      bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer),
-                                      space: rgbColorSpace,
-                                      bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue)
-            {
-                context.interpolationQuality = .low
-                if mirrorCamera {
-                    context.translateBy(x: CGFloat(width), y: 0.0)
-                    context.scaleBy(x: -1.0, y: 1.0)
-                }
-                context.draw(image, in: CGRect(x: 0, y: 0, width: width, height: height))
-            }
-            
-            CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
-            
+        if let pixelBuffer = self.inputPixelBuffer ?? generatePixelBuffer(with: image) {
             var sbuf: CMSampleBuffer!
             var timingInfo = CMSampleTimingInfo()
             timingInfo.presentationTimeStamp = CMClockGetTime(CMClockGetHostTimeClock())
@@ -174,7 +204,7 @@ class CMIOSourceHandler : ObservableObject {
             print("error getting pixel buffer")
         }
     }
-
+    
     func setJustProperty(streamId: CMIOStreamID, newValue: String) {
         let selector = FourCharCode("just")
         var address = CMIOObjectPropertyAddress(mSelector: selector, mScope: .global, mElement: .main)
@@ -191,7 +221,7 @@ class CMIOSourceHandler : ObservableObject {
             CMIOObjectSetPropertyData(streamId, &address, 0, nil, dataSize, &newName)
         }
     }
-
+    
     func getJustProperty(streamId: CMIOStreamID) -> String? {
         let selector = FourCharCode("just")
         var address = CMIOObjectPropertyAddress(selector, .global, .main)
@@ -207,7 +237,7 @@ class CMIOSourceHandler : ObservableObject {
             return nil
         }
     }
-
+    
     @objc func propertyTimer() {
         if let sourceStream = sourceStream {
             self.setJustProperty(streamId: sourceStream, newValue: "random")
@@ -236,3 +266,27 @@ class CMIOSourceHandler : ObservableObject {
 }
 
 
+
+//            var bufferPtr = CVPixelBufferGetBaseAddress(pixelBuffer)!
+//            let width = CVPixelBufferGetWidth(pixelBuffer)
+//            let height = CVPixelBufferGetHeight(pixelBuffer)
+//            let rowBytes = CVPixelBufferGetBytesPerRow(pixelBuffer)
+//            memset(bufferPtr, 0, rowBytes * height)
+//
+//            let whiteStripeStartRow = self._whiteStripeStartRow
+//            if self._whiteStripeIsAscending {
+//                self._whiteStripeStartRow = whiteStripeStartRow - 1
+//                self._whiteStripeIsAscending = self._whiteStripeStartRow > 0
+//            }
+//            else {
+//                self._whiteStripeStartRow = whiteStripeStartRow + 1
+//                self._whiteStripeIsAscending = self._whiteStripeStartRow >= (height - 30)
+//            }
+//            bufferPtr += rowBytes * Int(whiteStripeStartRow)
+//            for _ in 0..<30 {
+//                for _ in 0..<width {
+//                    var white: UInt32 = 0xFFFFFFFF
+//                    memcpy(bufferPtr, &white, MemoryLayout.size(ofValue: white))
+//                    bufferPtr += MemoryLayout.size(ofValue: white)
+//                }
+//            }
