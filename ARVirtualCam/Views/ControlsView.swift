@@ -9,23 +9,16 @@ import SwiftUI
 
 struct ControlsView: View {
     // @EnvironmentObject var cmioSourceHandler: CMIOSourceHandler
-    @EnvironmentObject private var viewModel : VirtualCameraPluginViewModel
+    @EnvironmentObject private var viewModel : VirtualCameraViewModel
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 5) {
             Toggle("Mirror Camera", isOn: $viewModel.mirrorCamera)
                 .toggleStyle(SwitchToggleStyle())
                 .padding()
-            
-            Button("Connect to Camera", action: viewModel.connectToCamera)
-                .buttonStyle(RoundedButtonStyle())
-            
             Text(viewModel.debugMessage)
                 .padding()
-            
-            Spacer()
         }
-        .padding()
     }
 }
 

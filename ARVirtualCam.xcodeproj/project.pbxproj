@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3124BB82C0AAFA000CB6A47 /* LogDepthCodecAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BB72C0AAFA000CB6A47 /* LogDepthCodecAlgorithm.swift */; };
+		C3124BBA2C0C524700CB6A47 /* HSVDepthCodecAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BB92C0C524700CB6A47 /* HSVDepthCodecAlgorithm.swift */; };
+		C3124BBC2C0C52F100CB6A47 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BBB2C0C52F100CB6A47 /* ColorUtils.swift */; };
+		C3124BBE2C0EB28D00CB6A47 /* CachedPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BBD2C0EB28D00CB6A47 /* CachedPixelBuffer.swift */; };
+		C3124BC02C0EB38100CB6A47 /* DepthBufferTranscoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BBF2C0EB38100CB6A47 /* DepthBufferTranscoder.swift */; };
+		C3124BC22C0EDBD500CB6A47 /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BC12C0EDBD500CB6A47 /* Comparable.swift */; };
 		C341D7BF2C027BCD00F19B2B /* CameraStreamSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7BE2C027BCD00F19B2B /* CameraStreamSink.swift */; };
 		C341D7C12C027CBB00F19B2B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C02C027CBB00F19B2B /* Config.swift */; };
 		C341D7C42C027CE800F19B2B /* CameraDeviceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C32C027CE700F19B2B /* CameraDeviceSource.swift */; };
 		C341D7C62C027D5A00F19B2B /* CameraStreamSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C52C027D5A00F19B2B /* CameraStreamSource.swift */; };
 		C341D7C82C027D8100F19B2B /* CameraProvierSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C72C027D8100F19B2B /* CameraProvierSource.swift */; };
-		C341D7CA2C02863000F19B2B /* CMIOSourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C92C02863000F19B2B /* CMIOSourceHandler.swift */; };
+		C341D7CA2C02863000F19B2B /* CMIOVirutalCameraSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C92C02863000F19B2B /* CMIOVirutalCameraSource.swift */; };
 		C341D7CB2C0286FC00F19B2B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C02C027CBB00F19B2B /* Config.swift */; };
-		C341D7CE2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7CD2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift */; };
+		C341D7CE2C028C8200F19B2B /* VirtualCameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7CD2C028C8200F19B2B /* VirtualCameraViewModel.swift */; };
 		C341D7D02C02907600F19B2B /* CameraProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7CF2C02907600F19B2B /* CameraProvider.swift */; };
 		C341D7D32C0291E300F19B2B /* FourCodeChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7D22C0291E300F19B2B /* FourCodeChar.swift */; };
 		C341D7D52C02923700F19B2B /* CMIOExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7D42C02923700F19B2B /* CMIOExtensions.swift */; };
@@ -35,6 +41,13 @@
 		C377A4312C0527ED00D06991 /* PixelBufferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377A4302C0527ED00D06991 /* PixelBufferView.swift */; };
 		C377A4332C052EE100D06991 /* CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377A4322C052EE100D06991 /* CVPixelBuffer.swift */; };
 		C377A4352C0535D800D06991 /* DataRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377A4342C0535D800D06991 /* DataRateView.swift */; };
+		C377A43A2C0689BC00D06991 /* CameraDeviceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C32C027CE700F19B2B /* CameraDeviceSource.swift */; };
+		C377A43B2C0689BC00D06991 /* CameraStreamSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C52C027D5A00F19B2B /* CameraStreamSource.swift */; };
+		C377A43C2C0689BC00D06991 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B772C01B27900B83352 /* main.swift */; };
+		C377A43D2C0689BC00D06991 /* CameraProvierSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C72C027D8100F19B2B /* CameraProvierSource.swift */; };
+		C377A43E2C0689BC00D06991 /* CameraStreamSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7BE2C027BCD00F19B2B /* CameraStreamSink.swift */; };
+		C377A43F2C0689BC00D06991 /* ARVirtualCamExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B752C01B27900B83352 /* ARVirtualCamExtensionProvider.swift */; };
+		C377A4402C0689BC00D06991 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C02C027CBB00F19B2B /* Config.swift */; };
 		C3B05BA42C02AA06005B3E3A /* SignalingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B05BA12C02AA06005B3E3A /* SignalingClient.swift */; };
 		C3B05BA52C02AA06005B3E3A /* WebRTCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B05BA22C02AA06005B3E3A /* WebRTCClient.swift */; };
 		C3B05BA62C02AA06005B3E3A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B05BA32C02AA06005B3E3A /* Message.swift */; };
@@ -52,6 +65,8 @@
 		C3D25B762C01B27900B83352 /* ARVirtualCamExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B752C01B27900B83352 /* ARVirtualCamExtensionProvider.swift */; };
 		C3D25B782C01B27900B83352 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B772C01B27900B83352 /* main.swift */; };
 		C3D25B7D2C01B27900B83352 /* com.carlmoore.arvirtualcam.extension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C3D25B732C01B27900B83352 /* com.carlmoore.arvirtualcam.extension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C3DB64DA2C0A7CE7009B1E9A /* DepthDataCodec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB64D92C0A7CE7009B1E9A /* DepthDataCodec.swift */; };
+		C3DB64DC2C0A86B8009B1E9A /* OverflowDepthCodecAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB64DB2C0A86B8009B1E9A /* OverflowDepthCodecAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,13 +108,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C3124BB72C0AAFA000CB6A47 /* LogDepthCodecAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDepthCodecAlgorithm.swift; sourceTree = "<group>"; };
+		C3124BB92C0C524700CB6A47 /* HSVDepthCodecAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSVDepthCodecAlgorithm.swift; sourceTree = "<group>"; };
+		C3124BBB2C0C52F100CB6A47 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		C3124BBD2C0EB28D00CB6A47 /* CachedPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedPixelBuffer.swift; sourceTree = "<group>"; };
+		C3124BBF2C0EB38100CB6A47 /* DepthBufferTranscoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthBufferTranscoder.swift; sourceTree = "<group>"; };
+		C3124BC12C0EDBD500CB6A47 /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
 		C341D7BE2C027BCD00F19B2B /* CameraStreamSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStreamSink.swift; sourceTree = "<group>"; };
 		C341D7C02C027CBB00F19B2B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C341D7C32C027CE700F19B2B /* CameraDeviceSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDeviceSource.swift; sourceTree = "<group>"; };
 		C341D7C52C027D5A00F19B2B /* CameraStreamSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStreamSource.swift; sourceTree = "<group>"; };
 		C341D7C72C027D8100F19B2B /* CameraProvierSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraProvierSource.swift; sourceTree = "<group>"; };
-		C341D7C92C02863000F19B2B /* CMIOSourceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMIOSourceHandler.swift; sourceTree = "<group>"; };
-		C341D7CD2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCameraPluginViewModel.swift; sourceTree = "<group>"; };
+		C341D7C92C02863000F19B2B /* CMIOVirutalCameraSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMIOVirutalCameraSource.swift; sourceTree = "<group>"; };
+		C341D7CD2C028C8200F19B2B /* VirtualCameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCameraViewModel.swift; sourceTree = "<group>"; };
 		C341D7CF2C02907600F19B2B /* CameraProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraProvider.swift; sourceTree = "<group>"; };
 		C341D7D22C0291E300F19B2B /* FourCodeChar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourCodeChar.swift; sourceTree = "<group>"; };
 		C341D7D42C02923700F19B2B /* CMIOExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMIOExtensions.swift; sourceTree = "<group>"; };
@@ -119,6 +140,8 @@
 		C377A4302C0527ED00D06991 /* PixelBufferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferView.swift; sourceTree = "<group>"; };
 		C377A4322C052EE100D06991 /* CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBuffer.swift; sourceTree = "<group>"; };
 		C377A4342C0535D800D06991 /* DataRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRateView.swift; sourceTree = "<group>"; };
+		C377A4462C0689BC00D06991 /* ARVirtualCamExtensionColor.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = ARVirtualCamExtensionColor.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		C377A4472C0689BC00D06991 /* ARVirtualCamExtension copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ARVirtualCamExtension copy-Info.plist"; path = "/Users/carl/dev/depth-camera/ARVirtualCam/ARVirtualCamExtension copy-Info.plist"; sourceTree = "<absolute>"; };
 		C3B05BA12C02AA06005B3E3A /* SignalingClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalingClient.swift; sourceTree = "<group>"; };
 		C3B05BA22C02AA06005B3E3A /* WebRTCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRTCClient.swift; sourceTree = "<group>"; };
 		C3B05BA32C02AA06005B3E3A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -142,9 +165,18 @@
 		C3D25B772C01B27900B83352 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C3D25B792C01B27900B83352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3D25B7A2C01B27900B83352 /* ARVirtualCamExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARVirtualCamExtension.entitlements; sourceTree = "<group>"; };
+		C3DB64D92C0A7CE7009B1E9A /* DepthDataCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthDataCodec.swift; sourceTree = "<group>"; };
+		C3DB64DB2C0A86B8009B1E9A /* OverflowDepthCodecAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverflowDepthCodecAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C377A4412C0689BC00D06991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3D25B372C01B1C900B83352 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,7 +225,8 @@
 		C341D7CC2C028C7A00F19B2B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C341D7CD2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift */,
+				C377A41C2C03032400D06991 /* WebRTCStateManager.swift */,
+				C341D7CD2C028C8200F19B2B /* VirtualCameraViewModel.swift */,
 				C377A4172C02DB3500D06991 /* WebRTCManager.swift */,
 			);
 			path = Models;
@@ -209,6 +242,7 @@
 				C341D7D22C0291E300F19B2B /* FourCodeChar.swift */,
 				C341D7D42C02923700F19B2B /* CMIOExtensions.swift */,
 				C377A4322C052EE100D06991 /* CVPixelBuffer.swift */,
+				C3124BC12C0EDBD500CB6A47 /* Comparable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,14 +254,6 @@
 				C377A4092C02B9E700D06991 /* CoreAudio.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C377A4192C02F68700D06991 /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				C377A41C2C03032400D06991 /* WebRTCStateManager.swift */,
-			);
-			path = Delegates;
 			sourceTree = "<group>";
 		};
 		C377A41E2C03EE8700D06991 /* Components */ = {
@@ -258,6 +284,7 @@
 				C3D25B742C01B27900B83352 /* ARVirtualCamExtension */,
 				C3D25B3B2C01B1C900B83352 /* Products */,
 				C377A3F62C02AAC500D06991 /* Frameworks */,
+				C377A4472C0689BC00D06991 /* ARVirtualCamExtension copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,6 +295,7 @@
 				C3D25B4B2C01B1C900B83352 /* ARVirtualCamTests.xctest */,
 				C3D25B552C01B1C900B83352 /* ARVirtualCamUITests.xctest */,
 				C3D25B732C01B27900B83352 /* com.carlmoore.arvirtualcam.extension.systemextension */,
+				C377A4462C0689BC00D06991 /* ARVirtualCamExtensionColor.systemextension */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,7 +303,7 @@
 		C3D25B3C2C01B1C900B83352 /* ARVirtualCam */ = {
 			isa = PBXGroup;
 			children = (
-				C377A4192C02F68700D06991 /* Delegates */,
+				C3DB64D82C0A7CDA009B1E9A /* Transcoding */,
 				C341D7D12C0291CE00F19B2B /* Extensions */,
 				C341D7CC2C028C7A00F19B2B /* Models */,
 				C3D25B3D2C01B1C900B83352 /* ARVirtualCamApp.swift */,
@@ -331,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				C3D25B6D2C01B22600B83352 /* BundleLocator.swift */,
+				C3124BBB2C0C52F100CB6A47 /* ColorUtils.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -338,8 +367,8 @@
 		C3D25B742C01B27900B83352 /* ARVirtualCamExtension */ = {
 			isa = PBXGroup;
 			children = (
+				C3DB64A52C0A6911009B1E9A /* Deprecated */,
 				C341D7BD2C027BC100F19B2B /* CMIO */,
-				C3D25B752C01B27900B83352 /* ARVirtualCamExtensionProvider.swift */,
 				C3D25B772C01B27900B83352 /* main.swift */,
 				C3D25B792C01B27900B83352 /* Info.plist */,
 				C3D25B7A2C01B27900B83352 /* ARVirtualCamExtension.entitlements */,
@@ -356,15 +385,53 @@
 				C3B05BA32C02AA06005B3E3A /* Message.swift */,
 				C3B05BA12C02AA06005B3E3A /* SignalingClient.swift */,
 				C3B05BA22C02AA06005B3E3A /* WebRTCClient.swift */,
-				C341D7C92C02863000F19B2B /* CMIOSourceHandler.swift */,
+				C341D7C92C02863000F19B2B /* CMIOVirutalCameraSource.swift */,
 				C341D7CF2C02907600F19B2B /* CameraProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
+		C3DB64A52C0A6911009B1E9A /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				C3D25B752C01B27900B83352 /* ARVirtualCamExtensionProvider.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		C3DB64D82C0A7CDA009B1E9A /* Transcoding */ = {
+			isa = PBXGroup;
+			children = (
+				C3124BB72C0AAFA000CB6A47 /* LogDepthCodecAlgorithm.swift */,
+				C3DB64D92C0A7CE7009B1E9A /* DepthDataCodec.swift */,
+				C3DB64DB2C0A86B8009B1E9A /* OverflowDepthCodecAlgorithm.swift */,
+				C3124BB92C0C524700CB6A47 /* HSVDepthCodecAlgorithm.swift */,
+				C3124BBD2C0EB28D00CB6A47 /* CachedPixelBuffer.swift */,
+				C3124BBF2C0EB38100CB6A47 /* DepthBufferTranscoder.swift */,
+			);
+			path = Transcoding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C377A4382C0689BC00D06991 /* ARVirtualCamExtensionColor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C377A4432C0689BC00D06991 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtensionColor" */;
+			buildPhases = (
+				C377A4392C0689BC00D06991 /* Sources */,
+				C377A4412C0689BC00D06991 /* Frameworks */,
+				C377A4422C0689BC00D06991 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARVirtualCamExtensionColor;
+			productName = ARVirtualCamExtension;
+			productReference = C377A4462C0689BC00D06991 /* ARVirtualCamExtensionColor.systemextension */;
+			productType = "com.apple.product-type.system-extension";
+		};
 		C3D25B392C01B1C900B83352 /* ARVirtualCam */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3D25B5F2C01B1C900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCam" */;
@@ -490,11 +557,19 @@
 				C3D25B4A2C01B1C900B83352 /* ARVirtualCamTests */,
 				C3D25B542C01B1C900B83352 /* ARVirtualCamUITests */,
 				C3D25B722C01B27800B83352 /* ARVirtualCamExtension */,
+				C377A4382C0689BC00D06991 /* ARVirtualCamExtensionColor */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C377A4422C0689BC00D06991 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3D25B382C01B1C900B83352 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,14 +603,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C377A4392C0689BC00D06991 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C377A43A2C0689BC00D06991 /* CameraDeviceSource.swift in Sources */,
+				C377A43B2C0689BC00D06991 /* CameraStreamSource.swift in Sources */,
+				C377A43C2C0689BC00D06991 /* main.swift in Sources */,
+				C377A43D2C0689BC00D06991 /* CameraProvierSource.swift in Sources */,
+				C377A43E2C0689BC00D06991 /* CameraStreamSink.swift in Sources */,
+				C377A43F2C0689BC00D06991 /* ARVirtualCamExtensionProvider.swift in Sources */,
+				C377A4402C0689BC00D06991 /* Config.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3D25B362C01B1C900B83352 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C3D25B6E2C01B22600B83352 /* BundleLocator.swift in Sources */,
 				C341D7D52C02923700F19B2B /* CMIOExtensions.swift in Sources */,
+				C3124BC22C0EDBD500CB6A47 /* Comparable.swift in Sources */,
 				C3D25B402C01B1C900B83352 /* ControlsView.swift in Sources */,
+				C3124BBC2C0C52F100CB6A47 /* ColorUtils.swift in Sources */,
+				C3DB64DC2C0A86B8009B1E9A /* OverflowDepthCodecAlgorithm.swift in Sources */,
 				C3D25B6B2C01B1FB00B83352 /* InstallView.swift in Sources */,
+				C3124BC02C0EB38100CB6A47 /* DepthBufferTranscoder.swift in Sources */,
 				C377A4182C02DB3500D06991 /* WebRTCManager.swift in Sources */,
 				C341D7D32C0291E300F19B2B /* FourCodeChar.swift in Sources */,
 				C3B05BAA2C02AA23005B3E3A /* WebSocketProvider.swift in Sources */,
@@ -544,15 +637,19 @@
 				C377A4252C04162400D06991 /* CVPixelBufferDataChannel.swift in Sources */,
 				C3D25B3E2C01B1C900B83352 /* ARVirtualCamApp.swift in Sources */,
 				C377A4332C052EE100D06991 /* CVPixelBuffer.swift in Sources */,
-				C341D7CA2C02863000F19B2B /* CMIOSourceHandler.swift in Sources */,
+				C341D7CA2C02863000F19B2B /* CMIOVirutalCameraSource.swift in Sources */,
 				C377A4202C03EE9100D06991 /* Buttons.swift in Sources */,
+				C3124BBE2C0EB28D00CB6A47 /* CachedPixelBuffer.swift in Sources */,
 				C377A4352C0535D800D06991 /* DataRateView.swift in Sources */,
+				C3DB64DA2C0A7CE7009B1E9A /* DepthDataCodec.swift in Sources */,
 				C377A4312C0527ED00D06991 /* PixelBufferView.swift in Sources */,
 				C377A4272C04214E00D06991 /* PixelBufferImageView.swift in Sources */,
+				C3124BB82C0AAFA000CB6A47 /* LogDepthCodecAlgorithm.swift in Sources */,
+				C3124BBA2C0C524700CB6A47 /* HSVDepthCodecAlgorithm.swift in Sources */,
 				C377A4222C03F0EA00D06991 /* VideoView.swift in Sources */,
 				C3B05BA92C02AA23005B3E3A /* NativeWebSocket.swift in Sources */,
 				C377A41D2C03032400D06991 /* WebRTCStateManager.swift in Sources */,
-				C341D7CE2C028C8200F19B2B /* VirtualCameraPluginViewModel.swift in Sources */,
+				C341D7CE2C028C8200F19B2B /* VirtualCameraViewModel.swift in Sources */,
 				C377A4012C02AB4000D06991 /* FrameVideoCapturer.swift in Sources */,
 				C3B05BA62C02AA06005B3E3A /* Message.swift in Sources */,
 				C377A4022C02AB4000D06991 /* IceCandidate.swift in Sources */,
@@ -616,6 +713,60 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		C377A4442C0689BC00D06991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtension/ARVirtualCamExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KKZGPATSJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ARVirtualCamExtension copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carlmoore.arvirtualcam.extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C377A4452C0689BC00D06991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtension/ARVirtualCamExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KKZGPATSJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ARVirtualCamExtension copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carlmoore.arvirtualcam.extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		C3D25B5D2C01B1C900B83352 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -919,6 +1070,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C377A4432C0689BC00D06991 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtensionColor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C377A4442C0689BC00D06991 /* Debug */,
+				C377A4452C0689BC00D06991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C3D25B352C01B1C900B83352 /* Build configuration list for PBXProject "ARVirtualCam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

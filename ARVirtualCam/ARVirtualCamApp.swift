@@ -13,8 +13,10 @@ struct ARVirtualCamApp: App {
     let webRTCClient: WebRTCClient
     let signalingClient: SignalingClient
     
-    @StateObject var virtualCameraViewModel: VirtualCameraPluginViewModel = VirtualCameraPluginViewModel()
+    @StateObject var virtualCameraViewModel: VirtualCameraViewModel = VirtualCameraViewModel()
     @State private var isInstallWindowOpen = false
+    
+    let minimumWindowSize = CGSize(width: 500, height: 800)
     
     init() {
         self.webRTCClient = WebRTCClient(iceServers: WebRTCConfig.default.iceServers, streamId: WebRTCConfig.default.streamId)
@@ -23,7 +25,7 @@ struct ARVirtualCamApp: App {
     
     var body: some Scene {
         WindowGroup {
-            VStack(spacing: 20) {
+            VStack(spacing: 10) {
                 HStack {
                     Spacer()
                     Button(action: {
@@ -32,10 +34,10 @@ struct ARVirtualCamApp: App {
                         Text("Install Plugin")
                     }
                 }
-                ControlsView().environmentObject(self.virtualCameraViewModel)
+                ControlsView().environmentObject(self.virtualCameraViewModel).padding()
                 ConnectionView(webRTCClient: self.webRTCClient, signalingClient: self.signalingClient).environmentObject(self.virtualCameraViewModel)
 
-            }.padding([.all], 20)
+            }.padding([.all], 10)
                 .sheet(isPresented: $isInstallWindowOpen) {
                     VStack {
                         HStack {
@@ -45,8 +47,8 @@ struct ARVirtualCamApp: App {
                             }
                             .padding()
                         }
-                        .padding(.top, 20)
-                        .padding(.trailing, 20)
+                        .padding(.top, 10)
+                        .padding(.trailing, 10)
                         InstallView()
                     }
                     .cornerRadius(10)
@@ -55,6 +57,6 @@ struct ARVirtualCamApp: App {
                         isInstallWindowOpen.toggle()
                     }
                 }
-        }
+        }.defaultSize(minimumWindowSize)
     }
 }

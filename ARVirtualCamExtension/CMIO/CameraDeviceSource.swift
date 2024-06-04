@@ -57,7 +57,6 @@ class CameraDeviceSource: NSObject, CMIOExtensionDeviceSource {
         let deviceID = UUID()
         self.device = CMIOExtensionDevice(localizedName: localizedName, deviceID: deviceID, legacyDeviceID: deviceID.uuidString, source: self)
         
-        //let dims = CMVideoDimensions(width: 1920, height: 1080)
         let dims = CMVideoDimensions(width: fixedCamWidth, height: fixedCamHeight)
         CMVideoFormatDescriptionCreate(
             allocator: kCFAllocatorDefault,
@@ -116,81 +115,76 @@ class CameraDeviceSource: NSObject, CMIOExtensionDeviceSource {
     let paragraphStyle = NSMutableParagraphStyle()
     let textFontAttributes: [NSAttributedString.Key : Any]
     
-    func startStreaming() {
+    func renderPlaceholder() {
+        if self.sinkStarted {
+            return
+        }
+        //var text: String? = nil
+        var err: OSStatus = 0
         
+        var pixelBuffer: CVPixelBuffer?
+        
+        let timestamp = CMClockGetTime(CMClockGetHostTimeClock())
+        let text = self.lastMessage + " \(Int(timestamp.seconds))"
+        err = CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(kCFAllocatorDefault, self._bufferPool, self._bufferAuxAttributes, &pixelBuffer)
+        if err != 0 {
+            os_log(.error, "out of pixel buffers \(err)")
+        }
+        if let pixelBuffer = pixelBuffer {
+            
+            CVPixelBufferLockBaseAddress(pixelBuffer, [])
+            let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer)
+            let width = CVPixelBufferGetWidth(pixelBuffer)
+            let height = CVPixelBufferGetHeight(pixelBuffer)
+            let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+            if let context = CGContext(data: pixelData,
+                                       width: width,
+                                       height: height,
+                                       bitsPerComponent: 8,
+                                       bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer),
+                                       space: rgbColorSpace,
+                                           bitmapInfo: UInt32(CGImageAlphaInfo.noneSkipFirst.rawValue) | UInt32(CGImageByteOrderInfo.order32Little.rawValue))
+//                                       bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue)
+            {
+                
+                let graphicsContext = NSGraphicsContext(cgContext: context, flipped: false)
+                NSGraphicsContext.saveGraphicsState()
+                NSGraphicsContext.current = graphicsContext
+                let cgContext = graphicsContext.cgContext
+                let dstRect = CGRect(x: 0, y: 0, width: width, height: height)
+                cgContext.clear(dstRect)
+                cgContext.setFillColor(NSColor.black.cgColor)
+                cgContext.fill(dstRect)
+                let textOrigin = CGPoint(x: 0, y: -height/2 + Int(fontSize/2.0))
+                let rect = CGRect(origin: textOrigin, size: NSSize(width: width, height: height))
+                text.draw(in: rect, withAttributes: self.textFontAttributes)
+                NSGraphicsContext.restoreGraphicsState()
+            }
+            CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
+        }
+        
+        if let pixelBuffer = pixelBuffer {
+            var sbuf: CMSampleBuffer!
+            var timingInfo = CMSampleTimingInfo()
+            timingInfo.presentationTimeStamp = CMClockGetTime(CMClockGetHostTimeClock())
+            err = CMSampleBufferCreateForImageBuffer(allocator: kCFAllocatorDefault, imageBuffer: pixelBuffer, dataReady: true, makeDataReadyCallback: nil, refcon: nil, formatDescription: self._videoDescription, sampleTiming: &timingInfo, sampleBufferOut: &sbuf)
+            if err == 0 {
+                self._streamSource.stream.send(sbuf, discontinuity: [], hostTimeInNanoseconds: UInt64(timingInfo.presentationTimeStamp.seconds * Double(NSEC_PER_SEC)))
+            } else {
+                self.lastMessage = "err send"
+            }
+        }
+    }
+    
+    func startStreaming() {
         guard let _ = _bufferPool else {
             return
         }
-        
         _streamingCounter += 1
         _timer = DispatchSource.makeTimerSource(flags: .strict, queue: _timerQueue)
         _timer!.schedule(deadline: .now(), repeating: 1.0/Double(kFrameRate), leeway: .seconds(0))
-        
-        _timer!.setEventHandler {
-            
-            if self.sinkStarted {
-                return
-            }
-            //var text: String? = nil
-            var err: OSStatus = 0
-            
-            var pixelBuffer: CVPixelBuffer?
-            
-            let timestamp = CMClockGetTime(CMClockGetHostTimeClock())
-            let text = self.lastMessage + " \(Int(timestamp.seconds))"
-            err = CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(kCFAllocatorDefault, self._bufferPool, self._bufferAuxAttributes, &pixelBuffer)
-            if err != 0 {
-                os_log(.error, "out of pixel buffers \(err)")
-            }
-            if let pixelBuffer = pixelBuffer {
-                
-                CVPixelBufferLockBaseAddress(pixelBuffer, [])
-                let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer)
-                let width = CVPixelBufferGetWidth(pixelBuffer)
-                let height = CVPixelBufferGetHeight(pixelBuffer)
-                let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-                if let context = CGContext(data: pixelData,
-                                           width: width,
-                                           height: height,
-                                           bitsPerComponent: 8,
-                                           bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer),
-                                           space: rgbColorSpace,
-//                                           bitmapInfo: UInt32(CGImageAlphaInfo.noneSkipFirst.rawValue) | UInt32(CGImageByteOrderInfo.order32Little.rawValue))
-                                           bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue)
-                {
-                    
-                    let graphicsContext = NSGraphicsContext(cgContext: context, flipped: false)
-                    NSGraphicsContext.saveGraphicsState()
-                    NSGraphicsContext.current = graphicsContext
-                    let cgContext = graphicsContext.cgContext
-                    let dstRect = CGRect(x: 0, y: 0, width: width, height: height)
-                    cgContext.clear(dstRect)
-                    cgContext.setFillColor(NSColor.black.cgColor)
-                    cgContext.fill(dstRect)
-                    let textOrigin = CGPoint(x: 0, y: -height/2 + Int(fontSize/2.0))
-                    let rect = CGRect(origin: textOrigin, size: NSSize(width: width, height: height))
-                    text.draw(in: rect, withAttributes: self.textFontAttributes)
-                    NSGraphicsContext.restoreGraphicsState()
-                }
-                CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
-            }
-            
-            if let pixelBuffer = pixelBuffer {
-                var sbuf: CMSampleBuffer!
-                var timingInfo = CMSampleTimingInfo()
-                timingInfo.presentationTimeStamp = CMClockGetTime(CMClockGetHostTimeClock())
-                err = CMSampleBufferCreateForImageBuffer(allocator: kCFAllocatorDefault, imageBuffer: pixelBuffer, dataReady: true, makeDataReadyCallback: nil, refcon: nil, formatDescription: self._videoDescription, sampleTiming: &timingInfo, sampleBufferOut: &sbuf)
-                if err == 0 {
-                    self._streamSource.stream.send(sbuf, discontinuity: [], hostTimeInNanoseconds: UInt64(timingInfo.presentationTimeStamp.seconds * Double(NSEC_PER_SEC)))
-                } else {
-                    self.lastMessage = "err send"
-                }
-            }
-        }
-        
-        _timer!.setCancelHandler {
-        }
-        
+        _timer!.setEventHandler(handler: renderPlaceholder)
+        _timer!.setCancelHandler {}
         _timer!.resume()
     }
     
@@ -209,6 +203,7 @@ class CameraDeviceSource: NSObject, CMIOExtensionDeviceSource {
     
     var sinkStarted = false
     var lastTimingInfo = CMSampleTimingInfo()
+    
     func consumeBuffer(_ client: CMIOExtensionClient) {
         if sinkStarted == false {
             return
@@ -227,7 +222,6 @@ class CameraDeviceSource: NSObject, CMIOExtensionDeviceSource {
     }
     
     func startStreamingSink(client: CMIOExtensionClient) {
-        
         _streamingSinkCounter += 1
         self.sinkStarted = true
         consumeBuffer(client)

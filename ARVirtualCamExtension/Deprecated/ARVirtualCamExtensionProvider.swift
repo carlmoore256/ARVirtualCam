@@ -156,7 +156,6 @@ class ARVirtualCamExtensionDeviceSource: NSObject, CMIOExtensionDeviceSource {
                 CVPixelBufferLockBaseAddress(pixelBuffer, [])
                 
                 self.drawHorizontalLine(pixelBuffer)
-//                self.drawText("FOOBAR", on: pixelBuffer)
                                 
                 CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
                 

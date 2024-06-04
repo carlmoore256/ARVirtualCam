@@ -10,56 +10,14 @@ import WebRTC
 import DataCompression
 import Accelerate
 
-struct PixelBufferMetadata {
-    var width: Int
-    var height: Int
-    var pixelFormat: OSType
-    var bytesPerRow: Int
-    
-    static func fromWebRTCDataBuffer(data: Data) -> PixelBufferMetadata? {
-        guard data.count >= 16 else {
-            return nil // Ensure data has enough bytes for the metadata
-        }
-        
-        let metadata = data.prefix(16)
-        return metadata.withUnsafeBytes { pointer in
-            let width = Int(pointer.load(as: Int32.self))
-            let height = Int(pointer.load(fromByteOffset: 4, as: Int32.self))
-            let pixelFormat = pointer.load(fromByteOffset: 8, as: OSType.self)
-            let bytesPerRow = Int(pointer.load(fromByteOffset: 12, as: Int32.self))
-            
-            return PixelBufferMetadata(width: width, height: height,
-                                       pixelFormat: pixelFormat,
-                                       bytesPerRow: bytesPerRow)
-        }
-    }
-    
-    func description() -> String {
-        return """
-        PixelBufferMetadata:
-          Width: \(width)
-          Height: \(height)
-          Pixel Format: \(fourCCString(from: pixelFormat)) (\(pixelFormat))
-          Bytes Per Row: \(bytesPerRow)
-        """
-    }
-    
-    private func fourCCString(from ostype: OSType) -> String {
-        return String(format: "%c%c%c%c",
-                      (ostype >> 24) & 255,
-                      (ostype >> 16) & 255,
-                      (ostype >> 8) & 255,
-                      ostype & 255)
-    }
-}
 
-
-// converts an incoming data buffer from RTCDataBuffer into a CVPixelBuffer
+// A delegate for an RTCDataChannel which converts an incoming data buffer from RTCDataBuffer into a CVPixelBuffer
 class CVPixelBufferDataChannel: NSObject, RTCDataChannelDelegate, ObservableObject  {
     var pixelBuffer: CVPixelBuffer?
     @Published var pixelBufferMetadata: PixelBufferMetadata?
-    @Published var averageDataRate: Double = 0
+    @Published var x: Double = 0
     @Published var averageFrameRate: Int = 0
+    @Published var averageDataRate: Double = 0
     
     private var dataReceivedThisSecond: Int = 0
     private var framesReceivedThisSecond: Int = 0
@@ -143,7 +101,6 @@ class CVPixelBufferDataChannel: NSObject, RTCDataChannelDelegate, ObservableObje
             }
             // Setup the pixel buffer if not already done
             if self.pixelBuffer == nil {
-                print("SElf.pixelBuffer is nil, CREATING IT NOW")
                 setupPixelBuffer(with: pixelBufferMetadata)
             }
             
@@ -185,4 +142,47 @@ class CVPixelBufferDataChannel: NSObject, RTCDataChannelDelegate, ObservableObje
     }
 }
 
+
+struct PixelBufferMetadata {
+    var width: Int
+    var height: Int
+    var pixelFormat: OSType
+    var bytesPerRow: Int
+    
+    static func fromWebRTCDataBuffer(data: Data) -> PixelBufferMetadata? {
+        guard data.count >= 16 else {
+            return nil // Ensure data has enough bytes for the metadata
+        }
+        
+        let metadata = data.prefix(16)
+        return metadata.withUnsafeBytes { pointer in
+            let width = Int(pointer.load(as: Int32.self))
+            let height = Int(pointer.load(fromByteOffset: 4, as: Int32.self))
+            let pixelFormat = pointer.load(fromByteOffset: 8, as: OSType.self)
+            let bytesPerRow = Int(pointer.load(fromByteOffset: 12, as: Int32.self))
+            
+            return PixelBufferMetadata(width: width, height: height,
+                                       pixelFormat: pixelFormat,
+                                       bytesPerRow: bytesPerRow)
+        }
+    }
+    
+    func description() -> String {
+        return """
+        PixelBufferMetadata:
+          Width: \(width)
+          Height: \(height)
+          Pixel Format: \(fourCCString(from: pixelFormat)) (\(pixelFormat))
+          Bytes Per Row: \(bytesPerRow)
+        """
+    }
+    
+    private func fourCCString(from ostype: OSType) -> String {
+        return String(format: "%c%c%c%c",
+                      (ostype >> 24) & 255,
+                      (ostype >> 16) & 255,
+                      (ostype >> 8) & 255,
+                      ostype & 255)
+    }
+}
 
