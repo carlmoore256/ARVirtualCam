@@ -13,6 +13,13 @@
 		C3124BBE2C0EB28D00CB6A47 /* CachedPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BBD2C0EB28D00CB6A47 /* CachedPixelBuffer.swift */; };
 		C3124BC02C0EB38100CB6A47 /* DepthBufferTranscoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BBF2C0EB38100CB6A47 /* DepthBufferTranscoder.swift */; };
 		C3124BC22C0EDBD500CB6A47 /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BC12C0EDBD500CB6A47 /* Comparable.swift */; };
+		C3124BE12C0FBA2300CB6A47 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3124BE02C0FBA2300CB6A47 /* main.swift */; };
+		C3124BE62C0FBA2300CB6A47 /* com.carlmoore.arvirtualcam.extensioncolor.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C3124BDC2C0FBA2300CB6A47 /* com.carlmoore.arvirtualcam.extensioncolor.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C3124BEB2C0FBE2400CB6A47 /* CameraStreamSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7BE2C027BCD00F19B2B /* CameraStreamSink.swift */; };
+		C3124BEC2C0FBE2900CB6A47 /* CameraStreamSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C52C027D5A00F19B2B /* CameraStreamSource.swift */; };
+		C3124BED2C0FBE2900CB6A47 /* CameraProvierSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C72C027D8100F19B2B /* CameraProvierSource.swift */; };
+		C3124BEE2C0FBE2900CB6A47 /* CameraDeviceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C32C027CE700F19B2B /* CameraDeviceSource.swift */; };
+		C3124BEF2C0FBE9300CB6A47 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C02C027CBB00F19B2B /* Config.swift */; };
 		C341D7BF2C027BCD00F19B2B /* CameraStreamSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7BE2C027BCD00F19B2B /* CameraStreamSink.swift */; };
 		C341D7C12C027CBB00F19B2B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C02C027CBB00F19B2B /* Config.swift */; };
 		C341D7C42C027CE800F19B2B /* CameraDeviceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C32C027CE700F19B2B /* CameraDeviceSource.swift */; };
@@ -41,13 +48,6 @@
 		C377A4312C0527ED00D06991 /* PixelBufferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377A4302C0527ED00D06991 /* PixelBufferView.swift */; };
 		C377A4332C052EE100D06991 /* CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377A4322C052EE100D06991 /* CVPixelBuffer.swift */; };
 		C377A4352C0535D800D06991 /* DataRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377A4342C0535D800D06991 /* DataRateView.swift */; };
-		C377A43A2C0689BC00D06991 /* CameraDeviceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C32C027CE700F19B2B /* CameraDeviceSource.swift */; };
-		C377A43B2C0689BC00D06991 /* CameraStreamSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C52C027D5A00F19B2B /* CameraStreamSource.swift */; };
-		C377A43C2C0689BC00D06991 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B772C01B27900B83352 /* main.swift */; };
-		C377A43D2C0689BC00D06991 /* CameraProvierSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C72C027D8100F19B2B /* CameraProvierSource.swift */; };
-		C377A43E2C0689BC00D06991 /* CameraStreamSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7BE2C027BCD00F19B2B /* CameraStreamSink.swift */; };
-		C377A43F2C0689BC00D06991 /* ARVirtualCamExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D25B752C01B27900B83352 /* ARVirtualCamExtensionProvider.swift */; };
-		C377A4402C0689BC00D06991 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341D7C02C027CBB00F19B2B /* Config.swift */; };
 		C3B05BA42C02AA06005B3E3A /* SignalingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B05BA12C02AA06005B3E3A /* SignalingClient.swift */; };
 		C3B05BA52C02AA06005B3E3A /* WebRTCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B05BA22C02AA06005B3E3A /* WebRTCClient.swift */; };
 		C3B05BA62C02AA06005B3E3A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B05BA32C02AA06005B3E3A /* Message.swift */; };
@@ -70,6 +70,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C3124BE42C0FBA2300CB6A47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3D25B322C01B1C900B83352 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3124BDB2C0FBA2300CB6A47;
+			remoteInfo = ARVirtualCamExtensionColor;
+		};
 		C3D25B4C2C01B1C900B83352 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3D25B322C01B1C900B83352 /* Project object */;
@@ -100,6 +107,7 @@
 			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
+				C3124BE62C0FBA2300CB6A47 /* com.carlmoore.arvirtualcam.extensioncolor.systemextension in Embed System Extensions */,
 				C3D25B7D2C01B27900B83352 /* com.carlmoore.arvirtualcam.extension.systemextension in Embed System Extensions */,
 			);
 			name = "Embed System Extensions";
@@ -114,6 +122,11 @@
 		C3124BBD2C0EB28D00CB6A47 /* CachedPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedPixelBuffer.swift; sourceTree = "<group>"; };
 		C3124BBF2C0EB38100CB6A47 /* DepthBufferTranscoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthBufferTranscoder.swift; sourceTree = "<group>"; };
 		C3124BC12C0EDBD500CB6A47 /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
+		C3124BDC2C0FBA2300CB6A47 /* com.carlmoore.arvirtualcam.extensioncolor.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = com.carlmoore.arvirtualcam.extensioncolor.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3124BDE2C0FBA2300CB6A47 /* ARVirtualCamExtensionColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVirtualCamExtensionColorProvider.swift; sourceTree = "<group>"; };
+		C3124BE02C0FBA2300CB6A47 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C3124BE22C0FBA2300CB6A47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3124BE32C0FBA2300CB6A47 /* ARVirtualCamExtensionColor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARVirtualCamExtensionColor.entitlements; sourceTree = "<group>"; };
 		C341D7BE2C027BCD00F19B2B /* CameraStreamSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStreamSink.swift; sourceTree = "<group>"; };
 		C341D7C02C027CBB00F19B2B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C341D7C32C027CE700F19B2B /* CameraDeviceSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDeviceSource.swift; sourceTree = "<group>"; };
@@ -140,7 +153,6 @@
 		C377A4302C0527ED00D06991 /* PixelBufferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferView.swift; sourceTree = "<group>"; };
 		C377A4322C052EE100D06991 /* CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBuffer.swift; sourceTree = "<group>"; };
 		C377A4342C0535D800D06991 /* DataRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRateView.swift; sourceTree = "<group>"; };
-		C377A4462C0689BC00D06991 /* ARVirtualCamExtensionColor.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = ARVirtualCamExtensionColor.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
 		C377A4472C0689BC00D06991 /* ARVirtualCamExtension copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ARVirtualCamExtension copy-Info.plist"; path = "/Users/carl/dev/depth-camera/ARVirtualCam/ARVirtualCamExtension copy-Info.plist"; sourceTree = "<absolute>"; };
 		C3B05BA12C02AA06005B3E3A /* SignalingClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalingClient.swift; sourceTree = "<group>"; };
 		C3B05BA22C02AA06005B3E3A /* WebRTCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRTCClient.swift; sourceTree = "<group>"; };
@@ -164,13 +176,13 @@
 		C3D25B752C01B27900B83352 /* ARVirtualCamExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVirtualCamExtensionProvider.swift; sourceTree = "<group>"; };
 		C3D25B772C01B27900B83352 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C3D25B792C01B27900B83352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3D25B7A2C01B27900B83352 /* ARVirtualCamExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARVirtualCamExtension.entitlements; sourceTree = "<group>"; };
+		C3D25B7A2C01B27900B83352 /* ARVirtualCamExtensionDepth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARVirtualCamExtensionDepth.entitlements; sourceTree = "<group>"; };
 		C3DB64D92C0A7CE7009B1E9A /* DepthDataCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthDataCodec.swift; sourceTree = "<group>"; };
 		C3DB64DB2C0A86B8009B1E9A /* OverflowDepthCodecAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverflowDepthCodecAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C377A4412C0689BC00D06991 /* Frameworks */ = {
+		C3124BD92C0FBA2300CB6A47 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -211,15 +223,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C341D7BD2C027BC100F19B2B /* CMIO */ = {
+		C3124BDD2C0FBA2300CB6A47 /* ARVirtualCamExtensionColor */ = {
 			isa = PBXGroup;
 			children = (
+				C3124BDE2C0FBA2300CB6A47 /* ARVirtualCamExtensionColorProvider.swift */,
+				C3124BE02C0FBA2300CB6A47 /* main.swift */,
+				C3124BE22C0FBA2300CB6A47 /* Info.plist */,
+				C3124BE32C0FBA2300CB6A47 /* ARVirtualCamExtensionColor.entitlements */,
+			);
+			path = ARVirtualCamExtensionColor;
+			sourceTree = "<group>";
+		};
+		C3124BEA2C0FBDEE00CB6A47 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C3DB64A52C0A6911009B1E9A /* Deprecated */,
 				C341D7BE2C027BCD00F19B2B /* CameraStreamSink.swift */,
 				C341D7C32C027CE700F19B2B /* CameraDeviceSource.swift */,
 				C341D7C52C027D5A00F19B2B /* CameraStreamSource.swift */,
 				C341D7C72C027D8100F19B2B /* CameraProvierSource.swift */,
 			);
-			path = CMIO;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		C341D7CC2C028C7A00F19B2B /* Models */ = {
@@ -277,14 +301,16 @@
 		C3D25B312C01B1C900B83352 = {
 			isa = PBXGroup;
 			children = (
+				C377A4472C0689BC00D06991 /* ARVirtualCamExtension copy-Info.plist */,
 				C341D7C02C027CBB00F19B2B /* Config.swift */,
 				C3D25B3C2C01B1C900B83352 /* ARVirtualCam */,
+				C3124BDD2C0FBA2300CB6A47 /* ARVirtualCamExtensionColor */,
+				C3D25B742C01B27900B83352 /* ARVirtualCamExtensionDepth */,
 				C3D25B4E2C01B1C900B83352 /* ARVirtualCamTests */,
 				C3D25B582C01B1C900B83352 /* ARVirtualCamUITests */,
-				C3D25B742C01B27900B83352 /* ARVirtualCamExtension */,
-				C3D25B3B2C01B1C900B83352 /* Products */,
+				C3124BEA2C0FBDEE00CB6A47 /* Extension */,
 				C377A3F62C02AAC500D06991 /* Frameworks */,
-				C377A4472C0689BC00D06991 /* ARVirtualCamExtension copy-Info.plist */,
+				C3D25B3B2C01B1C900B83352 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,7 +321,7 @@
 				C3D25B4B2C01B1C900B83352 /* ARVirtualCamTests.xctest */,
 				C3D25B552C01B1C900B83352 /* ARVirtualCamUITests.xctest */,
 				C3D25B732C01B27900B83352 /* com.carlmoore.arvirtualcam.extension.systemextension */,
-				C377A4462C0689BC00D06991 /* ARVirtualCamExtensionColor.systemextension */,
+				C3124BDC2C0FBA2300CB6A47 /* com.carlmoore.arvirtualcam.extensioncolor.systemextension */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -364,16 +390,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		C3D25B742C01B27900B83352 /* ARVirtualCamExtension */ = {
+		C3D25B742C01B27900B83352 /* ARVirtualCamExtensionDepth */ = {
 			isa = PBXGroup;
 			children = (
-				C3DB64A52C0A6911009B1E9A /* Deprecated */,
-				C341D7BD2C027BC100F19B2B /* CMIO */,
 				C3D25B772C01B27900B83352 /* main.swift */,
 				C3D25B792C01B27900B83352 /* Info.plist */,
-				C3D25B7A2C01B27900B83352 /* ARVirtualCamExtension.entitlements */,
+				C3D25B7A2C01B27900B83352 /* ARVirtualCamExtensionDepth.entitlements */,
 			);
-			path = ARVirtualCamExtension;
+			path = ARVirtualCamExtensionDepth;
 			sourceTree = "<group>";
 		};
 		C3D25B822C01C2BF00B83352 /* Services */ = {
@@ -415,21 +439,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C377A4382C0689BC00D06991 /* ARVirtualCamExtensionColor */ = {
+		C3124BDB2C0FBA2300CB6A47 /* ARVirtualCamExtensionColor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C377A4432C0689BC00D06991 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtensionColor" */;
+			buildConfigurationList = C3124BE72C0FBA2300CB6A47 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtensionColor" */;
 			buildPhases = (
-				C377A4392C0689BC00D06991 /* Sources */,
-				C377A4412C0689BC00D06991 /* Frameworks */,
-				C377A4422C0689BC00D06991 /* Resources */,
+				C3124BD82C0FBA2300CB6A47 /* Sources */,
+				C3124BD92C0FBA2300CB6A47 /* Frameworks */,
+				C3124BDA2C0FBA2300CB6A47 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ARVirtualCamExtensionColor;
-			productName = ARVirtualCamExtension;
-			productReference = C377A4462C0689BC00D06991 /* ARVirtualCamExtensionColor.systemextension */;
+			productName = ARVirtualCamExtensionColor;
+			productReference = C3124BDC2C0FBA2300CB6A47 /* com.carlmoore.arvirtualcam.extensioncolor.systemextension */;
 			productType = "com.apple.product-type.system-extension";
 		};
 		C3D25B392C01B1C900B83352 /* ARVirtualCam */ = {
@@ -445,6 +469,7 @@
 			);
 			dependencies = (
 				C3D25B7C2C01B27900B83352 /* PBXTargetDependency */,
+				C3124BE52C0FBA2300CB6A47 /* PBXTargetDependency */,
 			);
 			name = ARVirtualCam;
 			packageProductDependencies = (
@@ -492,9 +517,9 @@
 			productReference = C3D25B552C01B1C900B83352 /* ARVirtualCamUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		C3D25B722C01B27800B83352 /* ARVirtualCamExtension */ = {
+		C3D25B722C01B27800B83352 /* ARVirtualCamExtensionDepth */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3D25B7E2C01B27900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtension" */;
+			buildConfigurationList = C3D25B7E2C01B27900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtensionDepth" */;
 			buildPhases = (
 				C3D25B6F2C01B27800B83352 /* Sources */,
 				C3D25B702C01B27800B83352 /* Frameworks */,
@@ -504,7 +529,7 @@
 			);
 			dependencies = (
 			);
-			name = ARVirtualCamExtension;
+			name = ARVirtualCamExtensionDepth;
 			productName = ARVirtualCamExtension;
 			productReference = C3D25B732C01B27900B83352 /* com.carlmoore.arvirtualcam.extension.systemextension */;
 			productType = "com.apple.product-type.system-extension";
@@ -519,6 +544,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					C3124BDB2C0FBA2300CB6A47 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					C3D25B392C01B1C900B83352 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -556,14 +584,14 @@
 				C3D25B392C01B1C900B83352 /* ARVirtualCam */,
 				C3D25B4A2C01B1C900B83352 /* ARVirtualCamTests */,
 				C3D25B542C01B1C900B83352 /* ARVirtualCamUITests */,
-				C3D25B722C01B27800B83352 /* ARVirtualCamExtension */,
-				C377A4382C0689BC00D06991 /* ARVirtualCamExtensionColor */,
+				C3D25B722C01B27800B83352 /* ARVirtualCamExtensionDepth */,
+				C3124BDB2C0FBA2300CB6A47 /* ARVirtualCamExtensionColor */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C377A4422C0689BC00D06991 /* Resources */ = {
+		C3124BDA2C0FBA2300CB6A47 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -603,17 +631,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C377A4392C0689BC00D06991 /* Sources */ = {
+		C3124BD82C0FBA2300CB6A47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C377A43A2C0689BC00D06991 /* CameraDeviceSource.swift in Sources */,
-				C377A43B2C0689BC00D06991 /* CameraStreamSource.swift in Sources */,
-				C377A43C2C0689BC00D06991 /* main.swift in Sources */,
-				C377A43D2C0689BC00D06991 /* CameraProvierSource.swift in Sources */,
-				C377A43E2C0689BC00D06991 /* CameraStreamSink.swift in Sources */,
-				C377A43F2C0689BC00D06991 /* ARVirtualCamExtensionProvider.swift in Sources */,
-				C377A4402C0689BC00D06991 /* Config.swift in Sources */,
+				C3124BEB2C0FBE2400CB6A47 /* CameraStreamSink.swift in Sources */,
+				C3124BEE2C0FBE2900CB6A47 /* CameraDeviceSource.swift in Sources */,
+				C3124BEC2C0FBE2900CB6A47 /* CameraStreamSource.swift in Sources */,
+				C3124BEF2C0FBE9300CB6A47 /* Config.swift in Sources */,
+				C3124BE12C0FBA2300CB6A47 /* main.swift in Sources */,
+				C3124BED2C0FBE2900CB6A47 /* CameraProvierSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,6 +722,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C3124BE52C0FBA2300CB6A47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3124BDB2C0FBA2300CB6A47 /* ARVirtualCamExtensionColor */;
+			targetProxy = C3124BE42C0FBA2300CB6A47 /* PBXContainerItemProxy */;
+		};
 		C3D25B4D2C01B1C900B83352 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C3D25B392C01B1C900B83352 /* ARVirtualCam */;
@@ -707,23 +739,23 @@
 		};
 		C3D25B7C2C01B27900B83352 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C3D25B722C01B27800B83352 /* ARVirtualCamExtension */;
+			target = C3D25B722C01B27800B83352 /* ARVirtualCamExtensionDepth */;
 			targetProxy = C3D25B7B2C01B27900B83352 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		C377A4442C0689BC00D06991 /* Debug */ = {
+		C3124BE82C0FBA2300CB6A47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtension/ARVirtualCamExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtensionColor/ARVirtualCamExtensionColor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9KKZGPATSJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ARVirtualCamExtension copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtension;
+				INFOPLIST_FILE = ARVirtualCamExtensionColor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtensionColor;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -732,25 +764,25 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.carlmoore.arvirtualcam.extension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carlmoore.arvirtualcam.extensioncolor;
+				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		C377A4452C0689BC00D06991 /* Release */ = {
+		C3124BE92C0FBA2300CB6A47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtension/ARVirtualCamExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtensionColor/ARVirtualCamExtensionColor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9KKZGPATSJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ARVirtualCamExtension copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtension;
+				INFOPLIST_FILE = ARVirtualCamExtensionColor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtensionColor;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -759,8 +791,8 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.carlmoore.arvirtualcam.extension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carlmoore.arvirtualcam.extensioncolor;
+				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1016,14 +1048,16 @@
 		C3D25B7F2C01B27900B83352 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtension/ARVirtualCamExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtensionDepth/ARVirtualCamExtensionDepth.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9KKZGPATSJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ARVirtualCamExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtension;
+				INFOPLIST_FILE = ARVirtualCamExtensionDepth/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtensionDepth;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1034,6 +1068,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carlmoore.arvirtualcam.extension;
 				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1043,14 +1078,16 @@
 		C3D25B802C01B27900B83352 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtension/ARVirtualCamExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ARVirtualCamExtensionDepth/ARVirtualCamExtensionDepth.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9KKZGPATSJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ARVirtualCamExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtension;
+				INFOPLIST_FILE = ARVirtualCamExtensionDepth/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ARVirtualCamExtensionDepth;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1061,6 +1098,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carlmoore.arvirtualcam.extension;
 				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1070,11 +1108,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C377A4432C0689BC00D06991 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtensionColor" */ = {
+		C3124BE72C0FBA2300CB6A47 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtensionColor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C377A4442C0689BC00D06991 /* Debug */,
-				C377A4452C0689BC00D06991 /* Release */,
+				C3124BE82C0FBA2300CB6A47 /* Debug */,
+				C3124BE92C0FBA2300CB6A47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1115,7 +1153,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3D25B7E2C01B27900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtension" */ = {
+		C3D25B7E2C01B27900B83352 /* Build configuration list for PBXNativeTarget "ARVirtualCamExtensionDepth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C3D25B7F2C01B27900B83352 /* Debug */,

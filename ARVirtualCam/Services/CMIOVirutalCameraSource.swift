@@ -162,7 +162,7 @@ class CMIOVirutalCameraSource : ObservableObject {
     }
     
     func connectToCamera() {
-        guard let device = CameraProvider.getCMIODevice(name: cameraName) else {
+        guard let device = CameraProvider.getCMIODevice(name: depthCameraName) else {
             print("Error getting camera device!")
             return
         }

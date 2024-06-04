@@ -9,7 +9,7 @@ import Foundation
 import CoreMediaIO
 import os.log
 
-let providerSource = CameraProviderSource(clientQueue: nil)
+let providerSource = CameraProviderSource(cameraName: depthCameraName, clientQueue: nil)
 CMIOExtensionProvider.startService(provider: providerSource.provider)
 
 CFRunLoopRun()

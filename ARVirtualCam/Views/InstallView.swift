@@ -54,25 +54,32 @@ struct InstallView: View {
     }
     
     func install() {
-        guard let identifier = BundleLocator.extensionBundle().bundleIdentifier else {
-            delegate.logText = "Error getting bundle identifier"
-            return
+        let extensionBundles = BundleLocator.getExtensionBundles()
+        // install all the bundles (depth and color camera extensions)
+        for bundle in extensionBundles {
+            guard let bundleIdentifier = bundle.bundleIdentifier else {
+                print("Error - bundle has no identifier: \(bundle)")
+                continue
+            }
+            delegate.logText = "Attempting to install extension: \(bundleIdentifier)"
+            let activationRequest = OSSystemExtensionRequest.activationRequest(forExtensionWithIdentifier: bundleIdentifier, queue: .main)
+            activationRequest.delegate = delegate
+            OSSystemExtensionManager.shared.submitRequest(activationRequest)
         }
-        let activationRequest = OSSystemExtensionRequest.activationRequest(forExtensionWithIdentifier: identifier, queue: .main)
-        activationRequest.delegate = delegate
-        OSSystemExtensionManager.shared.submitRequest(activationRequest)
-        delegate.logText = "Attempting to install extension..."
     }
     
     func uninstall() {
-        guard let identifier = BundleLocator.extensionBundle().bundleIdentifier else {
-            delegate.logText = "Error getting bundle identifier"
-            return
+        let extensionBundles = BundleLocator.getExtensionBundles()
+        for bundle in extensionBundles {
+            guard let bundleIdentifier = bundle.bundleIdentifier else {
+                print("Error - bundle has no identifier: \(bundle)")
+                continue
+            }
+            delegate.logText = "Attempting to uninstall extension: \(bundleIdentifier)"
+            let deactivationRequest = OSSystemExtensionRequest.deactivationRequest(forExtensionWithIdentifier: bundleIdentifier, queue: .main)
+            deactivationRequest.delegate = delegate
+            OSSystemExtensionManager.shared.submitRequest(deactivationRequest)
         }
-        let deactivationRequest = OSSystemExtensionRequest.deactivationRequest(forExtensionWithIdentifier: identifier, queue: .main)
-        deactivationRequest.delegate = delegate
-        OSSystemExtensionManager.shared.submitRequest(deactivationRequest)
-        delegate.logText = "Attempting to uninstall extension..."
     }
 }
 

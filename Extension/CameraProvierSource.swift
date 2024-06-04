@@ -15,7 +15,10 @@ class CameraProviderSource: NSObject, CMIOExtensionProviderSource {
     
     private var deviceSource: CameraDeviceSource!
     
-    init(clientQueue: DispatchQueue?) {
+    private let cameraName: String
+    
+    init(cameraName: String, clientQueue: DispatchQueue?) {
+        self.cameraName = cameraName
         super.init()
         provider = CMIOExtensionProvider(source: self, clientQueue: clientQueue)
         deviceSource = CameraDeviceSource(localizedName: cameraName)

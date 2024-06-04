@@ -7,7 +7,8 @@
 import Foundation
 
 let kFrameRate: Int = 60
-let cameraName = "Sample Camera"
+let depthCameraName = "ARVirtualCam (Depth)"
+let colorCameraName = "ARVirtualCam (RGBA)"
 let fixedCamWidth: Int32 = 320
 let fixedCamHeight: Int32 = 240
 
